@@ -1,6 +1,4 @@
-package br.com.strategy;
-
-import br.com.dominio.Orcamento;
+package br.com.dominio;
 
 public interface Imposto {
     double calcula(Orcamento orcamento);
