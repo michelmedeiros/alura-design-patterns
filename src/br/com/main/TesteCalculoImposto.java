@@ -7,7 +7,7 @@ import br.com.estrategy.*;
 /**
  * Created by michel on 09/01/17.
  */
-public class Main {
+public class TesteCalculoImposto {
 
     public static void main(String[] args) {
         Orcamento orcamento = new Orcamento(200.00);
