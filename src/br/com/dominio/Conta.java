@@ -7,8 +7,11 @@ public class Conta {
 
     private double saldo;
 
-    public Conta(double saldo) {
+    private String titular;
+
+    public Conta(double saldo, String titular) {
         this.saldo = saldo;
+        this.titular = titular;
     }
 
     public void deposita(double valor) {
@@ -17,6 +20,10 @@ public class Conta {
 
     public double getSaldo() {
         return saldo;
+    }
+
+    public String getTitular() {
+        return titular;
     }
 
     public void setSaldo(double saldo) {

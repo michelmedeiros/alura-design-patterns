@@ -16,11 +16,11 @@ public class TesteCalculoImposto {
         new ICCC().calcula(orcamento);
 
         System.out.println("Conservador");
-        new RealizadorDeInvestimentos().realizaInvestimento(new Conta(100), new Conservador());
+        new RealizadorDeInvestimentos().realizaInvestimento(new Conta(100, titular), new Conservador());
         System.out.println("Moderado");
-        new RealizadorDeInvestimentos().realizaInvestimento(new Conta(100), new Moderado());
+        new RealizadorDeInvestimentos().realizaInvestimento(new Conta(100, titular), new Moderado());
         System.out.println("Arrojado");
-        new RealizadorDeInvestimentos().realizaInvestimento(new Conta(100), new Arrojado());
+        new RealizadorDeInvestimentos().realizaInvestimento(new Conta(100, titular), new Arrojado());
 
 
     }
