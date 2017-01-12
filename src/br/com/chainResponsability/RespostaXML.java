@@ -26,7 +26,7 @@ public class RespostaXML implements Resposta{
             retorno = "<conta><titular>" + conta.getTitular() + "</titular><saldo>"
             + conta.getSaldo() + "</saldo></conta>";
         } else {
-            this.resposta.responde(requisicao, conta);
+            retorno = this.resposta.responde(requisicao, conta);
         }
         return retorno;
     }

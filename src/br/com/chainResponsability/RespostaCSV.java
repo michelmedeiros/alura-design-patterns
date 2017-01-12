@@ -25,7 +25,7 @@ public class RespostaCSV implements Resposta{
         if(Formato.CSV.equals(requisicao.getFormato())) {
             retorno = conta.getTitular() + "," + conta.getSaldo();
         } else {
-            outraResposta.responde(requisicao, conta);
+            retorno = outraResposta.responde(requisicao, conta);
         }
         return retorno;
     }

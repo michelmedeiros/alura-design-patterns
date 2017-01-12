@@ -26,9 +26,9 @@ public class RespostaPorcentagem implements Resposta{
         if(Formato.PORCENTAGEM.equals(requisicao.getFormato())) {
             retorno = conta.getTitular() + "%" + conta.getSaldo();
         } else if(outraResposta != null){
-            this.outraResposta.responde(requisicao, conta);
+            retorno = this.outraResposta.responde(requisicao, conta);
         } else {
-            throw new RuntimeException("Formato de resposta não encontrado");
+            System.out.println("Formato de resposta não encontrado");
         }
         return retorno;
     }

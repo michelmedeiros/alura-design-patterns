@@ -11,11 +11,9 @@ import br.com.dominio.Resposta;
 public class ObterResposta {
 
     public void resposta(Requisicao requisicao, Conta conta) {
-        String respostaXML = new RespostaXML(new RespostaCSV()).responde(requisicao, conta);
-        System.out.println(respostaXML);
-        String respostaCSV = new RespostaCSV(new RespostaXML()).responde(requisicao, conta);
-        System.out.println(respostaCSV);
-        String respostaPorcentagem = new RespostaXML().responde(requisicao, conta);
-        System.out.println(respostaPorcentagem);
+        String resposta = new RespostaXML(
+                            new RespostaCSV(
+                                new RespostaPorcentagem())).responde(requisicao, conta);
+        System.out.println(resposta);
     }
 }
