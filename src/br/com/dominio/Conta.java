@@ -9,9 +9,26 @@ public class Conta {
 
     private String titular;
 
-    public Conta(double saldo, String titular) {
+    private Banco banco;
+
+    private String numero;
+
+    private String agencia;
+
+    public Conta(double saldo, String titular, Banco banco, String numero, String agencia) {
         this.saldo = saldo;
         this.titular = titular;
+        this.banco = banco;
+        this.numero = numero;
+        this.agencia = agencia;
+    }
+
+    public String getAgencia() {
+        return agencia;
+    }
+
+    public String getNumero() {
+        return numero;
     }
 
     public void deposita(double valor) {
@@ -24,6 +41,10 @@ public class Conta {
 
     public String getTitular() {
         return titular;
+    }
+
+    public Banco getBanco() {
+        return banco;
     }
 
     public void setSaldo(double saldo) {

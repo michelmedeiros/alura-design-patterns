@@ -3,6 +3,9 @@ package br.com.templateMethod;
 import br.com.dominio.Imposto;
 import br.com.dominio.Orcamento;
 
+import java.util.Collection;
+import java.util.stream.Collectors;
+
 /**
  * Created by root on 1/16/17.
  */
