@@ -11,6 +11,14 @@ import java.util.stream.Collectors;
  */
 public class IKCV extends TemplateCondicional {
 
+    public IKCV() {
+        super();
+    }
+
+    public IKCV(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
     @Override
     protected double minimaTaxacao(Orcamento orcamento) {
         return orcamento.getValor() * 0.06;

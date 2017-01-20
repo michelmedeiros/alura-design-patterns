@@ -6,7 +6,15 @@ import br.com.dominio.Orcamento;
 /**
  * Created by root on 1/16/17.
  */
-public abstract class TemplateCondicional implements Imposto {
+public abstract class TemplateCondicional extends Imposto {
+
+    public TemplateCondicional() {
+        super();
+    }
+
+    public TemplateCondicional(Imposto outroImposto) {
+        super(outroImposto);
+    }
 
     @Override
     public double calcula(Orcamento orcamento) {

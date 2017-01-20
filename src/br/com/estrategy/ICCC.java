@@ -6,7 +6,17 @@ import br.com.dominio.Orcamento;
 /**
  * Created by michel on 09/01/17.
  */
-public class ICCC implements Imposto{
+public class ICCC extends Imposto{
+
+
+    public ICCC() {
+        super();
+    }
+
+    public ICCC(Imposto outroImposto) {
+        super(outroImposto);
+    }
+
     @Override
     public double calcula(Orcamento orcamento) {
         double valor = orcamento.getValor();
@@ -17,7 +27,7 @@ public class ICCC implements Imposto{
         } else {
             valor = valor * 0.08 + 30;
         }
-        return valor;
+        return valor + super.calculaOutroImposto(orcamento);
     }
 }
 

@@ -3,6 +3,7 @@ package br.com.templateMethod;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import br.com.dominio.Imposto;
 import com.sun.org.apache.xpath.internal.operations.Or;
 
 import br.com.dominio.Orcamento;
@@ -11,6 +12,14 @@ import br.com.dominio.Orcamento;
  * Created by root on 1/16/17.
  */
 public class IHIT extends TemplateCondicional {
+
+    public IHIT() {
+        super();
+    }
+
+    public IHIT(Imposto outroImposto) {
+        super(outroImposto);
+    }
     @Override
     protected double minimaTaxacao(Orcamento orcamento) {
         return orcamento.getValor() * 0.13 + 100;
