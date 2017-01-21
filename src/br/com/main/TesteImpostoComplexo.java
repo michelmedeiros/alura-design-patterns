@@ -1,9 +1,6 @@
 package br.com.main;
 
-import br.com.decorator.IMA;
 import br.com.dominio.Orcamento;
-import br.com.estrategy.ICMS;
-import br.com.estrategy.ISS;
 import br.com.templateMethod.ICPP;
 import br.com.templateMethod.IHIT;
 import br.com.templateMethod.IKCV;

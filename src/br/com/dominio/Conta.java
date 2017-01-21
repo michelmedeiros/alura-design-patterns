@@ -1,5 +1,7 @@
 package br.com.dominio;
 
+import java.time.LocalDate;
+
 /**
  * Created by michel on 09/01/17.
  */
@@ -15,12 +17,23 @@ public class Conta {
 
     private String agencia;
 
+    private LocalDate dataAbertura;
+
+    public Conta(double saldo) {
+        this.saldo = saldo;
+    }
+
     public Conta(double saldo, String titular, Banco banco, String numero, String agencia) {
         this.saldo = saldo;
         this.titular = titular;
         this.banco = banco;
         this.numero = numero;
         this.agencia = agencia;
+    }
+
+    public Conta(double saldo, LocalDate dataAbertura) {
+        this.saldo = saldo;
+        this.dataAbertura = dataAbertura;
     }
 
     public String getAgencia() {
@@ -49,5 +62,14 @@ public class Conta {
 
     public void setSaldo(double saldo) {
         this.saldo = saldo;
+    }
+
+    public LocalDate getDataAbertura() {
+        return dataAbertura;
+    }
+
+    @Override
+    public String toString() {
+        return "Conta - Saldo: " + this.getSaldo();
     }
 }
