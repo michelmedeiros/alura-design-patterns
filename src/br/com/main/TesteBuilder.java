@@ -4,6 +4,10 @@ import br.com.builder.ItemNotaFiscalBuilder;
 import br.com.builder.NotaFiscalBuilder;
 import br.com.dominio.ItemNota;
 import br.com.dominio.NotaFiscal;
+import br.com.observer.EnviaPorEmail;
+import br.com.observer.EnviaPorSMS;
+import br.com.observer.Impressora;
+import br.com.observer.NotaFiscalDAO;
 
 import java.time.LocalDate;
 
@@ -16,6 +20,10 @@ public class TesteBuilder {
 
     public static void main(String[] args) {
         NotaFiscalBuilder notaFiscalBuilder = new NotaFiscalBuilder();
+        notaFiscalBuilder.adicionaAcao(new EnviaPorEmail());
+        notaFiscalBuilder.adicionaAcao(new EnviaPorSMS());
+        notaFiscalBuilder.adicionaAcao(new NotaFiscalDAO());
+        notaFiscalBuilder.adicionaAcao(new Impressora());
         NotaFiscal nota = notaFiscalBuilder.comEmpresa("Empresa teste")
             .comCnpj("1223444444")
             .comItem(new ItemNota("Produto Teste", 100D))

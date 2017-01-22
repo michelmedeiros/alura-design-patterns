@@ -2,6 +2,7 @@ package br.com.builder;
 
 import br.com.dominio.ItemNota;
 import br.com.dominio.NotaFiscal;
+import br.com.observer.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -19,9 +20,11 @@ public class NotaFiscalBuilder {
     private double valorImpostos;
     private String observacoes;
     private LocalDate dataEmissao;
+    private List<AcaoAposGerarNota> acoes;
 
     public NotaFiscalBuilder() {
         this.dataEmissao = LocalDate.now();
+        this.acoes = new ArrayList<>();
     }
 
     public NotaFiscalBuilder comEmpresa(String razaoSocial) {
@@ -52,7 +55,19 @@ public class NotaFiscalBuilder {
         return this;
     }
 
-    public NotaFiscal constroi() {
-       return new NotaFiscal(razaoSocial, cnpj, valorBruto, valorImpostos, dataEmissao, observacoes, itensNota);
+    public void adicionaAcao(AcaoAposGerarNota acao) {
+        if(!this.acoes.contains(acao)) {
+            acoes.add(acao);
+        }
     }
+
+    public NotaFiscal constroi() {
+       NotaFiscal nf = new NotaFiscal(razaoSocial, cnpj, valorBruto, valorImpostos, dataEmissao, observacoes, itensNota);
+       for(AcaoAposGerarNota acao: acoes) {
+           acao.executa(nf);
+       }
+       return nf;
+    }
+
+
 }
