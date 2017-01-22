@@ -20,6 +20,9 @@ public class NotaFiscalBuilder {
     private String observacoes;
     private LocalDate dataEmissao;
 
+    public NotaFiscalBuilder() {
+        this.dataEmissao = LocalDate.now();
+    }
 
     public NotaFiscalBuilder comEmpresa(String razaoSocial) {
         this.razaoSocial = razaoSocial;
@@ -44,8 +47,8 @@ public class NotaFiscalBuilder {
         return this;
     }
 
-    public NotaFiscalBuilder naDataAtual() {
-        this.dataEmissao = LocalDate.now();
+    public NotaFiscalBuilder naData(LocalDate dataEmissao) {
+        this.dataEmissao = dataEmissao;
         return this;
     }
 
