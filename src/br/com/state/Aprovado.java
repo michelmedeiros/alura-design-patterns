@@ -9,8 +9,13 @@ public class Aprovado implements EstadoOrcamento {
 
     @Override
     public void aplicaDescontoExtra(Orcamento orcamento) {
+        if(orcamento.isDescontoAplicado()) {
+            throw new RuntimeException("Desconto já aplicado ao orçamento");
+        }
+
         double desconto = orcamento.getValor() * 0.02;
         orcamento.setValor(orcamento.getValor() - desconto);
+        orcamento.setDescontoAplicado(true);
     }
 
     @Override

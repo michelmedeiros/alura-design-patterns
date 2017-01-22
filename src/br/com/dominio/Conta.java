@@ -1,5 +1,8 @@
 package br.com.dominio;
 
+import br.com.state.EstadoConta;
+import br.com.state.Positivo;
+
 import java.time.LocalDate;
 
 /**
@@ -19,6 +22,8 @@ public class Conta {
 
     private LocalDate dataAbertura;
 
+    private EstadoConta estadoConta;
+
     public Conta(double saldo) {
         this.saldo = saldo;
     }
@@ -34,6 +39,7 @@ public class Conta {
     public Conta(double saldo, LocalDate dataAbertura) {
         this.saldo = saldo;
         this.dataAbertura = dataAbertura;
+        this.estadoConta = new Positivo();
     }
 
     public String getAgencia() {
@@ -44,8 +50,12 @@ public class Conta {
         return numero;
     }
 
+    public void saque(double valor) {
+        this.estadoConta.saca(this, valor);
+    }
+
     public void deposita(double valor) {
-        this.saldo += valor;
+        this.estadoConta.deposita(this, valor);
     }
 
     public double getSaldo() {
@@ -66,6 +76,11 @@ public class Conta {
 
     public LocalDate getDataAbertura() {
         return dataAbertura;
+    }
+
+
+    public void setEstadoConta(EstadoConta estadoConta) {
+        this.estadoConta = estadoConta;
     }
 
     @Override

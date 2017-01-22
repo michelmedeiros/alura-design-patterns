@@ -13,6 +13,8 @@ public class Orcamento {
 
     private double valor;
 
+    private boolean descontoAplicado;
+
     private List<Item> itens;
 
     private EstadoOrcamento estadoAtual;
@@ -21,6 +23,7 @@ public class Orcamento {
         this.valor  = valor;
         this.estadoAtual = new EmAprovacao();
         this.itens = new ArrayList<Item>();
+        this.descontoAplicado = false;
     }
 
     public double getValor() {
@@ -49,5 +52,13 @@ public class Orcamento {
 
     public void aplicaDescontoExtra() {
         this.estadoAtual.aplicaDescontoExtra(this);
+    }
+
+    public boolean isDescontoAplicado() {
+        return descontoAplicado;
+    }
+
+    public void setDescontoAplicado(boolean descontoAplicado) {
+        this.descontoAplicado = descontoAplicado;
     }
 }
